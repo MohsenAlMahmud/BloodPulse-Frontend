@@ -50,7 +50,7 @@ const DashboardProfile = () => {
     if (recentThreeDonations.length === 0) {
         return (
             <div>
-                <h2 className="text-6xl font-bold my-8">Welcome To Blood Pulse {users?.name}!</h2>
+                <h2 className="text-6xl font-bold my-8">Welcome To BloodPulse {users?.name}!</h2>
 
                 {users?.role !== 'admin' && (
                     <p>No donation requests found.</p>
@@ -84,7 +84,7 @@ const DashboardProfile = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {users?.name}!</h2>
+            <h2 className="text-3xl font-bold my-8">Welcome To BloodPulse {users?.name}!</h2>
             <div className="overflow-x-auto">
                 {recentThreeDonations.length > 0 && (
                     <table className="table table-xs">

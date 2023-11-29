@@ -1,14 +1,10 @@
-import { FaCalendar, FaEnvelope, FaHome, FaSearch, FaShoppingCart, FaUsers } from "react-icons/fa";
+import { FaBlogger, FaHandHolding, FaHandHoldingMedical, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import useAuth from "../Hooks/useAuth";
-// import DashboardProfile from "../Pages/Dashboard/DashboardProfile";
-
-
-
 
 
 const Dashboard = () => {
@@ -38,16 +34,16 @@ const Dashboard = () => {
                             ?
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/adminHome" exact><FaHome></FaHome>Home Page</NavLink>
+                                    <NavLink to="/dashboard/adminHome" exact><FaHome></FaHome>Admin Profile</NavLink>
                                 </li>                                
                                 <li>
                                     <NavLink to="/dashboard/users"><FaUsers></FaUsers>All Users</NavLink>                                    
                                 </li>
                                 <li>
-                                <NavLink to="/dashboard/all-blood-donation-request"><FaUsers></FaUsers>All Blood Donation Req.</NavLink>                                    
+                                <NavLink to="/dashboard/all-blood-donation-request"><FaHandHoldingMedical></FaHandHoldingMedical>All Blood Donation Req.</NavLink>                                    
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/content-management"><FaUsers></FaUsers>Content Management</NavLink>                                    
+                                    <NavLink to="/dashboard/content-management"><FaBlogger></FaBlogger>Content Management</NavLink>                                    
                                 </li>
                             </>
                             : users.role === 'volunteer' ?
@@ -56,10 +52,10 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/userHome"><FaHome></FaHome>Volunteer Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/all-blood-donation-request-volunteer"><FaCalendar></FaCalendar>All Blood Donation Req</NavLink>
+                                    <NavLink to="/dashboard/all-blood-donation-request-volunteer"><FaHandHoldingMedical></FaHandHoldingMedical>All Blood Donation Req</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart>Content Management</NavLink>
+                                    <NavLink to="/dashboard/cart"><FaBlogger></FaBlogger>Content Management</NavLink>
                                 </li>
                             </>
                             :
@@ -68,10 +64,10 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/userHome"><FaHome></FaHome>Donor Profile</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/my-donation-requests"><FaCalendar></FaCalendar>My Donation Req</NavLink>
+                                    <NavLink to="/dashboard/my-donation-requests"><FaHandHoldingMedical></FaHandHoldingMedical>My Donation Req</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/create-donation-request"><FaShoppingCart></FaShoppingCart>Create Donation Req</NavLink>
+                                    <NavLink to="/dashboard/create-donation-request"><FaHandHolding className="text-white"></FaHandHolding> Create Donation Req</NavLink>
                                 </li>
                                 
                             </>
@@ -83,12 +79,7 @@ const Dashboard = () => {
                     <li>
                         <NavLink to="/"><FaHome></FaHome>Home</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/order/salad"><FaSearch></FaSearch>Menu</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/order/contact"><FaEnvelope></FaEnvelope>Contact</NavLink>
-                    </li>
+                    
                 </ul>
             </div>
             {/* dashboard content */}
