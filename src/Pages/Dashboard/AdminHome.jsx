@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const AdminHome = () => {
     const { user } = useAuth();
@@ -36,7 +37,7 @@ const AdminHome = () => {
                             <h2 className="card-title">Upazila : {users?.upazila}</h2>
 
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Update Information</button>
+                                <Link to="/dashboard/profile/updateInfo"><button className="btn btn-primary">Update Information</button></Link>
                             </div>
                         </div>
                     </div>

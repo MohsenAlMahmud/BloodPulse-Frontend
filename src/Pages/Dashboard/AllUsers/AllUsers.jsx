@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaPlusCircle, FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 // import { useState } from "react";
 // import { useEffect } from "react";
@@ -127,8 +127,8 @@ const AllUsers = () => {
                                         </>
                                     ) : (
                                         <>
-                                            <button onClick={() => handleMakeAdmin(user)} className="btn btn-lg bg-orange-500">
-                                                <FaUsers className="text-white text-2xl"></FaUsers>
+                                            <button onClick={() => handleMakeAdmin(user)} className="btn btn-lg bg-red-700">
+                                                <FaPlusCircle className="text-white text-2xl"></FaPlusCircle>
                                             </button>
                                         </>
                                     )}
