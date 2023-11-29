@@ -10,7 +10,7 @@ const MyDonationReq = () => {
     const { data: donations = [] } = useQuery({
         queryKey: ['donations'],
         queryFn: async () => {
-            const res = await axiosSecure.get('http://localhost:5000/donation-requests');
+            const res = await axiosSecure.get('https://bloodpulse.vercel.app/donation-requests');
             return res.data;
         }
     }); 

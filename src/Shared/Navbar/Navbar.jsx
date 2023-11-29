@@ -27,7 +27,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-red-800">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -55,8 +55,10 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <Link to="/signUp"><a className="btn">Registration</a></Link>
-                                <Link to="/login"><a className="btn">Login</a></Link>
+                                <div className="flex gap-4 px-3">
+                                    <div><Link to="/signUp"><a className="btn bg-red-800">Registration</a></Link></div>
+                                    <div><Link to="/login"><a className="btn bg-red-800">Login</a></Link></div>
+                                </div>
                             </>
                     }
                 </div>

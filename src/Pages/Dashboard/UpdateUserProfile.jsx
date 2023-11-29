@@ -13,7 +13,7 @@ const UpdateUserProfile = () => {
     const { data: currentUserData, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`http://localhost:5000/users/${user.email}`);
+            const res = await axiosPublic.get(`https://bloodpulse.vercel.app/users/${user.email}`);
             return res.data;
         }
     });
@@ -44,7 +44,7 @@ const UpdateUserProfile = () => {
                 // upazila: data.upazila,
             };
 
-            const res = await axiosPublic.patch(`http://localhost:5000/users/${user.email}`, updatedUserData);
+            const res = await axiosPublic.patch(`https://bloodpulse.vercel.app/users/${user.email}`, updatedUserData);
 
             if (res.data.modifiedCount > 0) {
                 Swal.fire({

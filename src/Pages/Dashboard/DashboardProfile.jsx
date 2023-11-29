@@ -4,18 +4,28 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const DashboardProfile = () => {
     const { user } = useAuth();
+    
     const axiosSecure = useAxiosSecure();
 
     const { data: donations = [] } = useQuery({
         queryKey: ['donations'],
         queryFn: async () => {
-            const res = await axiosSecure.get('http://localhost:5000/donation-requests');
+            const res = await axiosSecure.get('https://bloodpulse.vercel.app/donation-requests');
             return res.data;
         }
     });
 
-    const userDonations = donations.filter(request => request.requesterEmail === user.email);
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/${user.email}`);
+            return res.data;
+        }
+    })
+    
 
+    const userDonations = donations.filter(request => request.requesterEmail === user.email);
+   
     // Parse the donation dates into JavaScript Date objects
     const userDonationsWithDateObjects = userDonations.map(request => ({
         ...request,
@@ -34,7 +44,7 @@ const DashboardProfile = () => {
         // No donation requests, so don't render the table
         return (
             <div>
-                <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {user?.displayName}!</h2>
+                <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {users?.name}!</h2>
                 <p>No donation requests found.</p>
             </div>
         );
@@ -42,7 +52,7 @@ const DashboardProfile = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {user?.displayName}!</h2>
+            <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {users?.name}!</h2>
             <div className="overflow-x-auto">
                 {/* Conditionally render the table based on donation requests */}
                 {recentThreeDonations.length > 0 && (

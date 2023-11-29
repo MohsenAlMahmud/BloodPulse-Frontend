@@ -2,8 +2,8 @@
 
 const FeaturedSection = () => {
     return (
-        <div>
-            <h2 className="text-3xl font-semibold text-center mt-12 mb-6">THE BASICS OF BLOOD DONATION: WHAT YOU NEED TO KNOW</h2>
+        <div className="mb-12">
+            <h2 className="text-3xl font-bold text-center mt-12 mb-6">THE BASICS OF BLOOD DONATION: WHAT YOU NEED TO KNOW</h2>
             <p className="text-center mb-6">Blood donation is a selfless act that can save lives and make a significant impact on the well-being of others. By donating blood, you have the power to help patients in need, whether they are undergoing surgeries, recovering from accidents, or managing chronic conditions. However, before you make the decision to donate, it is essential to understand the basics of blood donation. In this blog post, we will guide you through the process, eligibility criteria, benefits, and common misconceptions surrounding blood donation.</p>
             <div className="flex gap-3 mb-6">
                 <div className="flex-1 rounded-lg h-64 bg-red-800">

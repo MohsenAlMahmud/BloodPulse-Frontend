@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import FeaturedSection from "./FeaturedSection";
+import BenifitOfBloodDonation from "./BenifitOfBloodDonation";
 
 
 
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>            
             <Banner></Banner>
             <FeaturedSection></FeaturedSection>
+            <BenifitOfBloodDonation></BenifitOfBloodDonation>
         </div>
     );
 };

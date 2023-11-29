@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-10 bg-red-800 text-base-content">
                 <aside>
                     <img className="w-24 rounded-lg" src="https://i.ibb.co/rm9NPft/logo.jpg" alt="" />
                     <p>Blood Donation Association<br />Providing Blood since 1992</p>

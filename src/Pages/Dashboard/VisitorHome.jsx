@@ -16,7 +16,7 @@ const VisitorHome = () => {
             return res.data;
         }
     })
-    console.log(users)
+    // console.log(users)
     useEffect(() => {
         refetch();
     }, [user, refetch]);

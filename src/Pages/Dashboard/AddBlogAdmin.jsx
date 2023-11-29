@@ -45,7 +45,7 @@ const AddBlogAdmin = () => {
       const imageUrl = imageUploadResponse.data.data.display_url;
       setParsedContent(HTMLReactParser(content));
       // Add the blog with the image URL
-      await axios.post('http://localhost:5000/add-blog', {
+      await axios.post('https://bloodpulse.vercel.app/add-blog', {
         title,
         content,
         imageUrl,
