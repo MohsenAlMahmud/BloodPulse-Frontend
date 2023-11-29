@@ -1,50 +1,87 @@
-import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
 
 const DashboardProfile = () => {
     const { user } = useAuth();
-    
     const axiosSecure = useAxiosSecure();
 
-    // const [userData, setUserData] = useState(null);
-
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+    const { data: donations = [] } = useQuery({
+        queryKey: ['donations'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/${user.email}`);                     
+            const res = await axiosSecure.get('http://localhost:5000/donation-requests');
             return res.data;
         }
-    })
-    useEffect(() => {
-        refetch();
-    }, [user, refetch]);
-   
+    });
+
+    const userDonations = donations.filter(request => request.requesterEmail === user.email);
+
+    // Parse the donation dates into JavaScript Date objects
+    const userDonationsWithDateObjects = userDonations.map(request => ({
+        ...request,
+        donationDateObject: parseCustomDate(request.donationDate),
+    }));
+
+    // Sort the donations by the donation date in ascending order (oldest to newest)
+    const sortedUserDonations = userDonationsWithDateObjects.sort(
+        (a, b) => a.donationDateObject - b.donationDateObject
+    );
+
+    // Get the first three items (most recent donations)
+    const recentThreeDonations = sortedUserDonations.slice(0, 3);
+
+    if (recentThreeDonations.length === 0) {
+        // No donation requests, so don't render the table
+        return (
+            <div>
+                <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {user?.displayName}!</h2>
+                <p>No donation requests found.</p>
+            </div>
+        );
+    }
 
     return (
         <div>
-            
-           <h2 className="text-3xl font-bold my-8">{users?.name} Profile</h2>
-           <div className="card bg-base-100 shadow-xl">
-                        <img className="w-60 h-72" src={users?.photoURL} alt="Profile Pic" />
-                        <div className="card-body">
-                            <h2 className="card-title">Name : {users?.name}</h2>
-                            <h2 className="card-title">Email Address : {users?.email}</h2>
-                            <h2 className="card-title">Blood Group : {users?.bloodGroup}</h2>
-                            <h2 className="card-title">District : {users?.district}</h2>
-                            <h2 className="card-title">Upazila : {users?.upazila}</h2>
-
-                            <div className="card-actions justify-end">
-                                <Link to="/dashboard/profile/updateInfo"><button className="btn btn-primary">Update Information</button></Link>
-                            </div>
-                        </div>
-                    </div>
-            
+            <h2 className="text-3xl font-bold my-8">Welcome To Blood Pulse {user?.displayName}!</h2>
+            <div className="overflow-x-auto">
+                {/* Conditionally render the table based on donation requests */}
+                {recentThreeDonations.length > 0 && (
+                    <table className="table table-xs">
+                        <thead>
+                            <tr>
+                                <th>SL</th>
+                                <th>Recipient Name</th>
+                                <th>Recipient District</th>
+                                <th>Recipient Upazila</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Donation Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {recentThreeDonations.map((request, index) => (
+                                <tr key={request._id}>
+                                    <td>{index + 1}</td>
+                                    <td>{request.recipientName}</td>
+                                    <td>{request.district}</td>
+                                    <td>{request.upazila}</td>
+                                    <td>{request.donationDate}</td>
+                                    <td>{request.donationTime}</td>
+                                    <td>#</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
+            </div>
         </div>
     );
+};
+
+// Custom function to parse "DD.MM.YYYY" date format
+const parseCustomDate = (dateString) => {
+    const [day, month, year] = dateString.split('.').map(Number);
+    return new Date(year, month - 1, day); // Month is zero-based in JavaScript Date object
 };
 
 export default DashboardProfile;

@@ -1,40 +1,21 @@
-// import { useQuery } from "@tanstack/react-query";
+
 import useAuth from "../../Hooks/useAuth";
-// import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useEffect, useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const MyDonationReq = () => {
-    // const { user } = useAuth();
-    // console.log(user);
-    // const axiosSecure = useAxiosSecure();
-    // const { data: users = [] } = useQuery({
-    //     queryKey: ['users'],
-    //     queryFn: async () => {
-    //         const res = await axiosSecure.get('http://localhost:5000/donation-requests');
-    //         return res.data;
-    //     }
-    // });
-
-    const [users, setUsers] = useState([]);
     const { user } = useAuth();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:5000/donation-requests');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-                setUsers(data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchData();
-    }, [user]); //
+    console.log(user);    
+    const axiosSecure = useAxiosSecure();
+    const { data: donations = [] } = useQuery({
+        queryKey: ['donations'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('http://localhost:5000/donation-requests');
+            return res.data;
+        }
+    }); 
+    const userDonations = donations.filter(request => request.requesterEmail === user.email);
+  
 
     return (
         <div>
@@ -59,7 +40,7 @@ const MyDonationReq = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((request, index) => (
+                        {userDonations.map((request, index) => (
                             <tr key={request._id}>
                                 <td>{index + 1}</td>
                                 <td>{request.recipientName}</td>

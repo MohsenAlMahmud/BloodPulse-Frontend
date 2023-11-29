@@ -73,17 +73,17 @@ export const router = createBrowserRouter([
       children: [
         //visitors routes
         {
+          path: 'userHome',
+          element: <VisitorHome></VisitorHome>
+        },
+        {
           path: 'profile',
           element: <DashboardProfile></DashboardProfile>
         },
         {
           path: 'profile/updateInfo',
           element: <UpdateProfile></UpdateProfile>
-        },
-        {
-          path: 'userHome',
-          element: <VisitorHome></VisitorHome>
-        },
+        },        
         {
           path: 'volunteerHome',
           element: <VolunteerHome></VolunteerHome>

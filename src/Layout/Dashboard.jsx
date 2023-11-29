@@ -65,7 +65,7 @@ const Dashboard = () => {
                             :
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/userHome"><FaHome></FaHome>Donor Home</NavLink>
+                                    <NavLink to="/dashboard/userHome"><FaHome></FaHome>Donor Profile</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/my-donation-requests"><FaCalendar></FaCalendar>My Donation Req</NavLink>
