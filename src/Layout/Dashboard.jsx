@@ -56,7 +56,7 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/userHome"><FaHome></FaHome>Volunteer Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/history"><FaCalendar></FaCalendar>All Blood Donation Req</NavLink>
+                                    <NavLink to="/dashboard/all-blood-donation-request-volunteer"><FaCalendar></FaCalendar>All Blood Donation Req</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart>Content Management</NavLink>

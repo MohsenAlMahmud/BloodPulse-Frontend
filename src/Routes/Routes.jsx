@@ -24,6 +24,7 @@ import AddBlogAdmin from "../Pages/Dashboard/AddBlogAdmin";
 import UpdateUserProfile from "../Pages/Dashboard/UpdateUserProfile";
 import DashboardProfile from "../Pages/Dashboard/DashboardProfile";
 import UpdateProfile from "../Pages/Dashboard/UpdateProfile";
+import AllDonationReqVolunteer from "../Pages/Dashboard/AllDonationReqVolunteer";
 
 
 export const router = createBrowserRouter([
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
       path: 'dashboard',
       element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       children: [
-        //visitors routes
+        //donors routes
         {
           path: 'userHome',
           element: <VisitorHome></VisitorHome>
@@ -84,10 +85,7 @@ export const router = createBrowserRouter([
           path: 'profile/updateInfo',
           element: <UpdateProfile></UpdateProfile>
         },        
-        {
-          path: 'volunteerHome',
-          element: <VolunteerHome></VolunteerHome>
-        },
+        
         {
           path: 'my-donation-requests',
           element: <MyDonationReq></MyDonationReq>
@@ -99,6 +97,15 @@ export const router = createBrowserRouter([
         {
           path: 'userHome/updateUserProfile/:id',
           element: <UpdateUserProfile></UpdateUserProfile>
+        },
+        //volunteers route
+        {
+          path: 'volunteerHome',
+          element: <VolunteerHome></VolunteerHome>
+        },
+        {
+          path: 'all-blood-donation-request-volunteer',
+          element: <AllDonationReqVolunteer></AllDonationReqVolunteer>
         },
         
         // {

@@ -1,13 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
-// import { useState } from 'react';
-// import { useEffect } from 'react';
 
+const AllDonationReqVolunteer = () => {
 
-
-
-const AllDonationReq = () => {
     const {user} = useAuth();
     console.log(user);
     const axiosSecure = useAxiosSecure();
@@ -33,6 +29,7 @@ const AllDonationReq = () => {
 
     //     fetchData();
     // }, [axiosSecure]);
+    
     return (
         <div>
         <h1 className='text-3xl my-8'>Donation Requests</h1>
@@ -80,4 +77,4 @@ const AllDonationReq = () => {
     );
 };
 
-export default AllDonationReq;
+export default AllDonationReqVolunteer;
