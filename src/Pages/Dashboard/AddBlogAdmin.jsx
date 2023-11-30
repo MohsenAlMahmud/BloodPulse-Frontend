@@ -3,6 +3,7 @@ import JoditEditor from 'jodit-react';
 import { useRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import HTMLReactParser from 'html-react-parser';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -13,6 +14,7 @@ const AddBlogAdmin = () => {
   const [content, setContent] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [parsedContent, setParsedContent] = useState('');
+  const axiosSecure = useAxiosSecure();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -45,7 +47,7 @@ const AddBlogAdmin = () => {
       const imageUrl = imageUploadResponse.data.data.display_url;
       setParsedContent(HTMLReactParser(content));
       // Add the blog with the image URL
-      await axios.post('https://bloodpulse.vercel.app/add-blog', {
+      await axiosSecure.post('https://bloodpulse.vercel.app/add-blog', {
         title,
         content,
         imageUrl,

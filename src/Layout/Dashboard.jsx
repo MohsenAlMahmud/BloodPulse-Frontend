@@ -49,13 +49,13 @@ const Dashboard = () => {
                             : users.role === 'volunteer' ?
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/userHome"><FaHome></FaHome>Volunteer Home</NavLink>
+                                    <NavLink to="/dashboard/volunteerHome"><FaHome></FaHome>Volunteer Profile</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/all-blood-donation-request-volunteer"><FaHandHoldingMedical></FaHandHoldingMedical>All Blood Donation Req</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/cart"><FaBlogger></FaBlogger>Content Management</NavLink>
+                                    <NavLink to="/dashboard/content-management"><FaBlogger></FaBlogger>Content Management</NavLink>
                                 </li>
                             </>
                             :

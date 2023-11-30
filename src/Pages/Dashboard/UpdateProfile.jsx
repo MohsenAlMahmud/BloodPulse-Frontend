@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -119,6 +118,7 @@ const UpdateProfile = () => {
 
                         <div className="form-control w-full my-6">
                             <input type="file" {...register('image', { required: true })} className="file-input w-full max-w-xs" />
+                            {errors.name && <span className="text-red-600">Image is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -160,6 +160,7 @@ const UpdateProfile = () => {
                                     </option>
                                 ))}
                             </select>
+                            {errors.upazila && <span className="text-red-600">District is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">

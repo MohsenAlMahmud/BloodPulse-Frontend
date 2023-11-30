@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const DonationRequest = () => {
     const axiosPublic = useAxiosPublic();
@@ -11,6 +12,7 @@ const DonationRequest = () => {
             return res.data;
         }
     });
+    console.log(donationRequests)
 
     return (
         <div className="">
@@ -24,19 +26,20 @@ const DonationRequest = () => {
                             <th>Upazila</th>
                             <th>Date</th>
                             <th>Time</th>
-                            <th>#</th>
+                            <th>View Details</th>
                         </tr>
                     </thead>
                     <tbody className="">
                         {donationRequests.map((donationRequest, index) => (
                             <tr className="" key={donationRequest.id}>
                                 <td>{index + 1}</td>
+                                
                                 <td>{donationRequest.requesterName}</td>
                                 <td>{donationRequest.district}</td>
                                 <td>{donationRequest.upazila}</td>
                                 <td>{donationRequest.donationDate}</td>
                                 <td>{donationRequest.donationTime}</td>
-                                <td><button className="btn btn-sm btn-primary">View</button></td>
+                                <td><Link to={`bloodDonationDetail/${donationRequest._id}`}><button className="btn btn-sm btn-primary">View</button></Link></td>
                             </tr>
                         ))}
                     </tbody>

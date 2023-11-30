@@ -18,6 +18,7 @@ const AllDonationReq = () => {
             return res.data;
         }
     })
+    console.log(donations);
 
     // const [users, setUsers] = useState([]);
 

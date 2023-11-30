@@ -15,8 +15,8 @@ const DashboardProfile = () => {
         }
     });
 
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+    const { data: selectedUsers = [] } = useQuery({
+        queryKey: ['selectedUsers'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user.email}`);
             return res.data;
@@ -33,31 +33,31 @@ const DashboardProfile = () => {
 
     const userDonations = donations.filter(request => request.requesterEmail === user.email);
 
-    // Parse the donation dates into JavaScript Date objects
+
     const userDonationsWithDateObjects = userDonations.map(request => ({
         ...request,
         donationDateObject: parseCustomDate(request.donationDate),
     }));
 
-    // Sort the donations by the donation date in ascending order (oldest to newest)
+
     const sortedUserDonations = userDonationsWithDateObjects.sort(
         (a, b) => a.donationDateObject - b.donationDateObject
     );
 
-    // Get the first three items (most recent donations)
+
     const recentThreeDonations = sortedUserDonations.slice(0, 3);
 
     if (recentThreeDonations.length === 0) {
         return (
             <div>
-                <h2 className="text-6xl font-bold my-8">Welcome To BloodPulse {users?.name}!</h2>
+                <h2 className="text-6xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
 
-                {users?.role !== 'admin' && (
+                {selectedUsers?.role !== 'admin' && selectedUsers?.role !== 'volunteer' && (
                     <p>No donation requests found.</p>
                 )}
-                {users?.role === 'admin' && (
+                {(selectedUsers?.role === 'admin' || selectedUsers?.role === 'volunteer') && (
                     <div>
-                        <h3 className="text-5xl mb-10">Admin Dashboard</h3>
+                        {/* <h3 className="text-5xl mb-10">Admin Dashboard</h3> */}
                         <div className="flex w-2/4 mb-10 h-48 bg-sky-200 rounded-lg py-10">
                             <div className="flex-1 flex items-center justify-center">
                                 <FaUserFriends className="text-9xl text-blue-700"></FaUserFriends>
@@ -84,7 +84,7 @@ const DashboardProfile = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold my-8">Welcome To BloodPulse {users?.name}!</h2>
+            <h2 className="text-3xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
             <div className="overflow-x-auto">
                 {recentThreeDonations.length > 0 && (
                     <table className="table table-xs">

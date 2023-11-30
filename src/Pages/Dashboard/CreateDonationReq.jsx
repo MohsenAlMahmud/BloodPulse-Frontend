@@ -15,7 +15,7 @@ const CreateDonationReq = () => {
     const axiosPublic = useAxiosPublic();
     // const axiosSecure = useAxiosSecure();
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/users/${user.email}`);
@@ -23,9 +23,9 @@ const CreateDonationReq = () => {
         }
     })
     console.log(users)
-    useEffect(() => {
-        refetch();
-    }, [user, refetch]);
+    // useEffect(() => {
+    //     // refetch();
+    // }, [user, refetch]);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 

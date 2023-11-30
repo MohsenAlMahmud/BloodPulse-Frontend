@@ -2,7 +2,7 @@
 
 const BenifitOfBloodDonation = () => {
     return (
-        <div className="flex mb-12">
+        <div className="md:flex mb-12">
             <div className="flex-1 p-4 text-center ">
                 <h2 className="text-5xl font-bold my-8">“Benefits of Blood Donation”</h2>
                 <div className="px-8">

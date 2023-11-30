@@ -10,7 +10,7 @@ const ContactUs = () => {
                 <p className="mb-6">Whether you have a question, are not sure about whether you can give <br /> blood or just want to say hello, we are happy to hear from you. </p>
             </div>
             <h2 className="text-3xl text-center font-bold mb-8">What would you like to tell us about?</h2>
-            <div className="grid grid-cols-2 gap-4 mb-12">                
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">                
                 <div className="flex border border-red-800 rounded-lg">
                     <div><FaMessage className="text-4xl text-red-800 m-4"></FaMessage></div>
                     <div>
