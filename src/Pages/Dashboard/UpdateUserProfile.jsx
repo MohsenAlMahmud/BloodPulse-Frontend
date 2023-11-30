@@ -92,8 +92,7 @@ const UpdateUserProfile = () => {
                 navigate('/');
             })
             .catch((error) => {
-                console.error("Error updating user profile:", error);
-                // Handle errors, display error messages, etc.
+                console.error("Error updating user profile:", error);                
             });
     };
 

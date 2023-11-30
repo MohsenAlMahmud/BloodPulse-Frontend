@@ -21,13 +21,13 @@ const Dashboard = () => {
     })
     useEffect(() => {
         refetch();
-    }, [user, refetch]);     
+    }, [user, refetch]);    
 
 
     return (
-        <div className="flex">
+        <div className="md:flex max-w-7xl mx-auto">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-red-800">
+            <div className="w-64 md:min-h-screen bg-red-800">
                 <ul className="menu p-4">
                     {
                         isAdmin
@@ -83,7 +83,7 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 md:p-8">
                 {/* <DashboardProfile></DashboardProfile> */}
                 <Outlet></Outlet>                
             </div>

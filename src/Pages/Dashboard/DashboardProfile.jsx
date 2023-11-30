@@ -50,7 +50,7 @@ const DashboardProfile = () => {
     if (recentThreeDonations.length === 0) {
         return (
             <div>
-                <h2 className="text-6xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
+                <h2 className="text-3xl md:text-6xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
 
                 {selectedUsers?.role !== 'admin' && selectedUsers?.role !== 'volunteer' && (
                     <p>No donation requests found.</p>
@@ -58,22 +58,22 @@ const DashboardProfile = () => {
                 {(selectedUsers?.role === 'admin' || selectedUsers?.role === 'volunteer') && (
                     <div>
                         {/* <h3 className="text-5xl mb-10">Admin Dashboard</h3> */}
-                        <div className="flex w-2/4 mb-10 h-48 bg-sky-200 rounded-lg py-10">
+                        <div className="flex md:w-2/4 mb-10 h-48 bg-sky-200 rounded-lg py-10">
                             <div className="flex-1 flex items-center justify-center">
-                                <FaUserFriends className="text-9xl text-blue-700"></FaUserFriends>
+                                <FaUserFriends className="text-5xl md:text-9xl text-blue-700"></FaUserFriends>
                             </div>
                             <div className="flex-1">
                                 <p className="text-2xl font-bold text-center">Total Users</p>
-                                <p className="text-6xl text-center font-extrabold text-blue-900">{allUsers.length}</p>
+                                <p className="text-3xl md:text-6xl text-center font-extrabold text-blue-900">{allUsers.length}</p>
                             </div>
                         </div>
-                        <div className="flex w-2/4 h-48 bg-sky-200 rounded-lg py-10">
+                        <div className="flex md:w-2/4 h-48 bg-sky-200 rounded-lg py-10">
                             <div className="flex-1 flex items-center justify-center">
-                                <FaHandHoldingMedical className="text-9xl text-red-800"></FaHandHoldingMedical>
+                                <FaHandHoldingMedical className="text-5xl md:text-9xl text-red-800"></FaHandHoldingMedical>
                             </div>
                             <div className="flex-1">
                                 <p className="text-2xl font-bold text-center">Total Donation Requests</p>
-                                <p className="text-6xl text-center font-extrabold text-red-900">{donations.length}</p>
+                                <p className="text-3xl md:text-6xl text-center font-extrabold text-red-900">{donations.length}</p>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ const DashboardProfile = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
+            <h2 className="text-xl md:text-3xl font-bold my-8">Welcome To BloodPulse {selectedUsers?.name}!</h2>
             <div className="overflow-x-auto">
                 {recentThreeDonations.length > 0 && (
                     <table className="table table-xs">

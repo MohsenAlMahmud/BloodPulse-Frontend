@@ -27,7 +27,7 @@ const VolunteerHomePage = () => {
     return (
         <div>
 
-            <h2 className="text-3xl font-bold my-8">{users?.name} Profile</h2>
+            <h2 className="text-xl md:text-3xl font-bold my-8">{users?.name} Profile</h2>
             <div className="card bg-base-100 shadow-xl">
                 <img className="w-60 h-72" src={users?.photoURL} alt="Profile Pic" />
                 <div className="card-body">
