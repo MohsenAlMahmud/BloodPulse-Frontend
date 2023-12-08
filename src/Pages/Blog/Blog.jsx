@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import HTMLReactParser from "html-react-parser";
 
 
+
 const Blog = () => {
 
     const axiosSecure = useAxiosSecure();
@@ -11,14 +12,16 @@ const Blog = () => {
         // enabled: !isLoading,
         queryFn: async () => {
             const res = await axiosSecure.get('/blogs');
-            console.log(res);
+            // console.log(res);
             return res.data;
         }
-    })
+    }) 
+    
+    const publishedBlogs = blogs.filter(blog => blog.status === "Published");
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-11">
-            {blogs.map((blog) => (
+            {publishedBlogs.map((blog) => (
                 <div key={blog.id} className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={blog.imageUrl} alt="blog" className="w-full h-48 object-cover" />

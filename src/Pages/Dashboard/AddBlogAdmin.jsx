@@ -47,7 +47,7 @@ const AddBlogAdmin = () => {
       const imageUrl = imageUploadResponse.data.data.display_url;
       setParsedContent(HTMLReactParser(content));
       // Add the blog with the image URL
-      await axiosSecure.post('https://bloodpulse.vercel.app/add-blog', {
+      await axiosSecure.post('iridescent-licorice-b247c0.netlify.app/add-blog', {
         title,
         content,
         imageUrl,
@@ -70,6 +70,7 @@ const AddBlogAdmin = () => {
       setTitle('');
       setContent('');
       setImageFile(null);
+      // history.push('/blog');
     } catch (error) {
       console.error('Error adding blog:', error);
       Swal.fire({
@@ -109,9 +110,7 @@ const AddBlogAdmin = () => {
             className="file-input w-full max-w-xs"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
 
       <div className='hidden'>

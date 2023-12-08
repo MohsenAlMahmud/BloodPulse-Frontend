@@ -43,7 +43,7 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/all-blood-donation-request"><FaHandHoldingMedical></FaHandHoldingMedical>All Blood Donation Req.</NavLink>                                    
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/content-management"><FaBlogger></FaBlogger>Content Management</NavLink>                                    
+                                    <NavLink to="/dashboard/content-management-admin"><FaBlogger></FaBlogger>Content Management</NavLink>                                    
                                 </li>
                             </>
                             : users.role === 'volunteer' ?
@@ -55,7 +55,7 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/all-blood-donation-request-volunteer"><FaHandHoldingMedical></FaHandHoldingMedical>All Blood Donation Req</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/content-management"><FaBlogger></FaBlogger>Content Management</NavLink>
+                                    <NavLink to="/dashboard/content-management-volunteer"><FaBlogger></FaBlogger>Content Management</NavLink>
                                 </li>
                             </>
                             :

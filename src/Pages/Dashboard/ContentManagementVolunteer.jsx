@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 
 
+
 const ContentManagementVolunteer = () => {
 
     const axiosSecure = useAxiosSecure();
@@ -12,10 +13,12 @@ const ContentManagementVolunteer = () => {
         // enabled: !isLoading,
         queryFn: async () => {
             const res = await axiosSecure.get('/blogs');
-            console.log(res);
+            // console.log(res);
             return res.data;
         }
     })
+
+    
 
     return (
         <div>
@@ -32,7 +35,7 @@ const ContentManagementVolunteer = () => {
                         <h2 className="card-title text-xl font-semibold mb-2">{blog.title}</h2>
                         <p className="text-gray-700">{HTMLReactParser(blog.content)}</p>
                         <div className="mt-4 flex justify-end">
-                            <button className="btn btn-primary">{blog.status}</button>
+                        <button className="btn btn-primary">{blog.status}</button>
                         </div>
                     </div>
                 </div>

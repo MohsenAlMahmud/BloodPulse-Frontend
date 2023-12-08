@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaPlusCircle, FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaPlusCircle, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 // import { useState } from "react";
 // import { useEffect } from "react";

@@ -32,131 +32,130 @@ import Page404 from "../Pages/Home/Page404";
 
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: "/",
-            element: <Home></Home>,
-        },
-        {
-            path: "/blog",
-            element: <Blog></Blog>,
-        },
-        {
-            path: "/donation-request",
-            element: <DonationRequest></DonationRequest>,
-        },
-        {
-            path: "/donation-request/bloodDonationDetail/:id",
-            element: <PrivateRoutes><BloodDonationDetail></BloodDonationDetail></PrivateRoutes>,
-            loader: ({params}) => fetch(`https://bloodpulse.vercel.app/donation-requests/bloodDonationDetail/${params.id}`)
-        },
-        {
-            path: "/funding",
-            element: <Funding></Funding>,
-        },
-        {
-            path: "/search",
-            element: <Search></Search>,
-        },
-        {
-            path: "login",
-            element: <Login></Login>,
-        },
-        {
-          path: 'signUp',
-          element: <SignUp></SignUp>
-        },
-        {
-          path: 'secret',
-          element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
-        },
-        {
-          path: '/*',
-          element: <Page404></Page404>
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
       },
-        
-       
-      ]
-    },
-    {
-      path: 'dashboard',
-      element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
-      children: [
-        //donors routes
-        {
-          path: 'userHome',
-          element: <VisitorHome></VisitorHome>
-        },
-        {
-          path: 'profile',
-          element: <DashboardProfile></DashboardProfile>
-        },
-        {
-          path: 'profile/updateInfo',
-          element: <UpdateProfile></UpdateProfile>
-        },        
-        
-        {
-          path: 'my-donation-requests',
-          element: <MyDonationReq></MyDonationReq>
-        },
-        {
-          path: 'create-donation-request',
-          element: <CreateDonationReq></CreateDonationReq>
-        },
-        {
-          path: 'userHome/updateUserProfile',
-          element: <UpdateUserProfile></UpdateUserProfile>
-        },
-        //volunteers route
-        {
-          path: 'volunteerHome',
-          element: <VolunteerHomePage></VolunteerHomePage>
-        },
-        {
-          path: 'all-blood-donation-request-volunteer',
-          element: <AllDonationReqVolunteer></AllDonationReqVolunteer>
-        },
-        {
-          path: 'content-management',
-          element: <ContentManagementVolunteer></ContentManagementVolunteer>
-        },
-        {
-          path: 'volunteerHome/updateUserProfile',
-          element: <UpdateUserProfile></UpdateUserProfile>
-        },
-        
-        // {
-        //   path: 'cart',
-        //   element: 
-        // },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/donation-request",
+        element: <DonationRequest></DonationRequest>,
+      },
+      {
+        path: "/donation-request/bloodDonationDetail/:id",
+        element: <PrivateRoutes><BloodDonationDetail></BloodDonationDetail></PrivateRoutes>,
+        loader: ({ params }) => fetch(`iridescent-licorice-b247c0.netlify.app/donation-requests/bloodDonationDetail/${params.id}`)
+      },
+      {
+        path: "/funding",
+        element: <Funding></Funding>,
+      },
+      {
+        path: "/search",
+        element: <Search></Search>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: 'signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: 'secret',
+        element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+      },
+      {
+        path: '/*',
+        element: <Page404></Page404>
+      },
 
-        
-        //admin route
-        {
-          path: 'adminHome',
-          element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-        },
-        {
-          path: 'users',
-          element: <AllUsers></AllUsers>
-        },
-        {
-          path: 'all-blood-donation-request',
-          element: <AllDonationReq></AllDonationReq>
-        },
-        {
-          path: 'content-management',
-          element: <ContentManagementAdmin></ContentManagementAdmin>
-        },
-        {
-          path: 'content-management/add-blog',
-          element: <AddBlogAdmin></AddBlogAdmin>
-        },
-      ]
-    }
-  ]);
-  
+
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+    children: [
+      //donors routes
+      {
+        path: 'userHome',
+        element: <VisitorHome></VisitorHome>
+      },
+      {
+        path: 'profile',
+        element: <DashboardProfile></DashboardProfile>
+      },
+      {
+        path: 'profile/updateInfo',
+        element: <UpdateProfile></UpdateProfile>
+      },
+
+      {
+        path: 'my-donation-requests',
+        element: <MyDonationReq></MyDonationReq>
+      },
+      {
+        path: 'create-donation-request',
+        element: <CreateDonationReq></CreateDonationReq>
+      },
+      {
+        path: 'userHome/updateUserProfile',
+        element: <UpdateUserProfile></UpdateUserProfile>
+      },
+      //volunteers route
+      {
+        path: 'volunteerHome',
+        element: <VolunteerHomePage></VolunteerHomePage>
+      },
+      {
+        path: 'all-blood-donation-request-volunteer',
+        element: <AllDonationReqVolunteer></AllDonationReqVolunteer>
+      },
+      {
+        path: 'content-management-volunteer',
+        element: <ContentManagementVolunteer></ContentManagementVolunteer>
+      },
+      {
+        path: 'volunteerHome/updateUserProfile',
+        element: <UpdateUserProfile></UpdateUserProfile>
+      },
+
+      // {
+      //   path: 'cart',
+      //   element: 
+      // },
+
+
+      //admin route
+      {
+        path: 'adminHome',
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'all-blood-donation-request',
+        element: <AllDonationReq></AllDonationReq>
+      },
+      {
+        path: 'content-management-admin',
+        element: <ContentManagementAdmin></ContentManagementAdmin>
+      },
+      {
+        path: 'content-management-admin/add-blog',
+        element: <AddBlogAdmin></AddBlogAdmin>
+      },
+    ]
+  }
+]);

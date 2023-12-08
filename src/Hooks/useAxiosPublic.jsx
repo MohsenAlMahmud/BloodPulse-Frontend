@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const axiosPublic = axios.create({
-    baseURL: 'https://bloodpulse.vercel.app'
+    baseURL: 'iridescent-licorice-b247c0.netlify.app'
 })
 
 const useAxiosPublic = () => {
