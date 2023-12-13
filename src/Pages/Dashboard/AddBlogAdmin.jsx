@@ -47,7 +47,7 @@ const AddBlogAdmin = () => {
       const imageUrl = imageUploadResponse.data.data.display_url;
       setParsedContent(HTMLReactParser(content));
       // Add the blog with the image URL
-      await axiosSecure.post('iridescent-licorice-b247c0.netlify.app/add-blog', {
+      await axiosSecure.post('https://bloodpulse.vercel.app/add-blog', {
         title,
         content,
         imageUrl,

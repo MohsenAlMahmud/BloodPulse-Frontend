@@ -14,4 +14,4 @@ Ensure a seamless user experience across devices, making the platform accessible
 
 
 # Client Side Live Link:
-https://iridescent-licorice-b247c0.netlify.app/
+https://https://bloodpulse.vercel.app/

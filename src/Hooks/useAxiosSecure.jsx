@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'iridescent-licorice-b247c0.netlify.app'
+    baseURL: 'https://bloodpulse.vercel.app'
 })
 
 const useAxiosSecure = () => {

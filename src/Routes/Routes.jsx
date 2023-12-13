@@ -29,6 +29,9 @@ import VolunteerHomePage from "../Pages/Dashboard/VolunteerHomePage";
 import ContentManagementVolunteer from "../Pages/Dashboard/ContentManagementVolunteer";
 import BloodDonationDetail from "../Pages/DonationRequest/BloodDonationDetail";
 import Page404 from "../Pages/Home/Page404";
+import Wall from "../Pages/Wall/Wall";
+import Contact from "../Pages/Contact";
+import FeedBack from "../Pages/FeedBack/FeedBack";
 
 
 export const router = createBrowserRouter([
@@ -45,17 +48,33 @@ export const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
+        path: "/wall",
+        element: <Wall></Wall>,
+      },
+      {
+        path: "/contacts",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/addWall",
+        element: <Wall></Wall>,
+      },
+      {
         path: "/donation-request",
         element: <DonationRequest></DonationRequest>,
       },
       {
         path: "/donation-request/bloodDonationDetail/:id",
         element: <PrivateRoutes><BloodDonationDetail></BloodDonationDetail></PrivateRoutes>,
-        loader: ({ params }) => fetch(`iridescent-licorice-b247c0.netlify.app/donation-requests/bloodDonationDetail/${params.id}`)
+        loader: ({ params }) => fetch(`https://bloodpulse.vercel.app/donation-requests/bloodDonationDetail/${params.id}`)
       },
       {
         path: "/funding",
         element: <Funding></Funding>,
+      },
+      {
+        path: "/feedBack",
+        element: <FeedBack></FeedBack>,
       },
       {
         path: "/search",

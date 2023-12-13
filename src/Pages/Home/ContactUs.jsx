@@ -1,5 +1,6 @@
 import { FaBookOpen, FaRegSmile } from "react-icons/fa";
 import { FaCirclePause, FaMessage } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 const ContactUs = () => {
@@ -32,7 +33,7 @@ const ContactUs = () => {
                     <div>
                         <h2 className="text-2xl font-bold my-2">Send us your story</h2>
                         <p className="mb-4">Have an amazing story about donating or receiving blood? Tell us about this here.</p>
-                        <button className="btn bg-red-800 mb-3">Tell us more</button>
+                        <Link to="/addWall"><button className="btn bg-red-800 mb-3">Tell us more</button></Link>
                     </div>
                 </div>
                 <div className="flex border border-red-800 rounded-lg">

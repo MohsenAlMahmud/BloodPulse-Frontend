@@ -19,9 +19,12 @@ const Navbar = () => {
     const navOptions = <>
         <li className="pt-3"><Link to={"/"}>Home</Link></li>
         <li className="pt-3"><Link to={"/blog"}>Blog</Link></li>
+        <li className="pt-3"><Link to={"/wall"}>Wall</Link></li>
         <li className="pt-3"><Link to={"/donation-request"}>Donation Request</Link></li>
         <li className="pt-3"><Link to={"/dashboard/profile"}>Dashboard</Link></li>
         <li className="pt-3"><Link to={"/funding"}>Funding</Link></li>
+        <li className="pt-3"><Link to={"/contacts"}>Contacts</Link></li>
+        <li className="pt-3"><Link to={"/feedBack"}>Feed Back</Link></li>
 
     </>
 
